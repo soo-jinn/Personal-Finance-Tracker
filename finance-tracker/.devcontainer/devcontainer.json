@@ -1,0 +1,33 @@
+{
+  "name": "Personal Finance Tracker (Full-Stack)",
+  "image": "[mcr.microsoft.com/devcontainers/universal:2](https://mcr.microsoft.com/devcontainers/universal:2)",
+
+  "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend",
+
+  "forwardPorts": [
+    5000,
+    5173
+  ],
+
+  "portsAttributes": {
+    "5000": {
+      "label": "Backend (API)"
+    },
+    "5173": {
+      "label": "Frontend (App)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}

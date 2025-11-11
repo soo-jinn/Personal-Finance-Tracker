@@ -3,26 +3,29 @@ set -e
 
 echo "🔧 Setting up environment..."
 
-# Create virtual environment if it doesn't exist
-if [ ! -d ".venv" ]; then
-  python -m venv .venv
+BACKEND_DIR="finance-tracker/backend"
+
+# Create virtual environment inside backend folder
+if [ ! -d "$BACKEND_DIR/.venv" ]; then
+  python -m venv "$BACKEND_DIR/.venv"
 fi
 
-# Use venv Python to install backend dependencies
-. .venv/bin/activate
+# Activate venv and install backend dependencies
+. "$BACKEND_DIR/.venv/bin/activate"
 python -m pip install --upgrade pip
 
-if [ -f "backend/requirements.txt" ]; then
-  pip install -r backend/requirements.txt
+if [ -f "$BACKEND_DIR/requirements.txt" ]; then
+  pip install -r "$BACKEND_DIR/requirements.txt"
 else
-  echo "⚠️  requirements.txt not found at backend/"
+  echo "⚠️  requirements.txt not found at $BACKEND_DIR/"
 fi
 
 # Install frontend dependencies
-if [ -d "frontend" ]; then
-  cd frontend
+FRONTEND_DIR="finance-tracker/frontend"
+if [ -d "$FRONTEND_DIR" ]; then
+  cd "$FRONTEND_DIR"
   npm install
-  cd ..
+  cd ../..
 else
   echo "⚠️  frontend folder not found"
 fi

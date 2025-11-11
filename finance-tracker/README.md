@@ -1,40 +1,15 @@
-NOTE: DOWNLOAD ALL THE FILES IF YOU PLAN TO RUN IT LOCALLY USING COMMAND PROMPT
+# Personal Finance Tracker
 
-Requirements:
-Python
-Node.js v24.11.0 (LTS)
+Full-stack application with a React frontend and Python/Flask backend.
 
-Part 1: Run the Backend (Python Server)
+This project is configured to run in GitHub Codespaces.
 
-Open your first terminal.
+## How to Run
 
-Navigate to the folder where your app.py and finance.db files are.
+1.  Open this repository in a Codespace.
+2.  Wait for the `postCreateCommand` to finish (it will install all dependencies).
+3.  Open two terminals.
+4.  **Terminal 1 (Backend):** `python backend/app.py`
+5.  **Terminal 2 (Frontend):** `npm run dev --prefix frontend`
 
-Create a virtual environment (if you haven't already):
-
-python -m venv venv
-
-
-
-Activate the virtual environment:
-
-On Windows: venv\Scripts\activate
-
-On Mac/Linux: source venv/bin/activate
-
-Run the backend server:
-
-python app.py
-
-
-
-Part 2: Run the Frontend (React App)
-
-Open a second, new terminal.
-
-Navigate into your new frontend folder.
-
-Run the frontend server:
-
-
-npm run dev
+The app will automatically open in a new browser tab.

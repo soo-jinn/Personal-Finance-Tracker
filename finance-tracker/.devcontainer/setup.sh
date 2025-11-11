@@ -12,17 +12,17 @@ fi
 . .venv/bin/activate
 python -m pip install --upgrade pip
 
-if [ -f "finance-tracker/backend/requirements.txt" ]; then
-  pip install -r finance-tracker/backend/requirements.txt
+if [ -f "backend/requirements.txt" ]; then
+  pip install -r backend/requirements.txt
 else
-  echo "⚠️  requirements.txt not found at finance-tracker/backend/"
+  echo "⚠️  requirements.txt not found at backend/"
 fi
 
 # Install frontend dependencies
-if [ -d "finance-tracker/frontend" ]; then
-  cd finance-tracker/frontend
+if [ -d "frontend" ]; then
+  cd frontend
   npm install
-  cd ../..
+  cd ..
 else
   echo "⚠️  frontend folder not found"
 fi

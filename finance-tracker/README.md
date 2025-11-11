@@ -11,5 +11,3 @@ This project is configured to run in GitHub Codespaces.
 3.  Open two terminals.
 4.  **Terminal 1 (Backend):** `python backend/app.py`
 5.  **Terminal 2 (Frontend):** `npm run dev --prefix frontend`
-
-The app will automatically open in a new browser tab.

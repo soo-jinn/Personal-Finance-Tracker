@@ -1,23 +1,17 @@
 {
   "name": "Personal Finance Tracker (Full-Stack)",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
-
-  // ✅ 1. Automatically create venv and install backend + frontend dependencies
   "postCreateCommand": "bash .devcontainer/setup.sh",
-
-  // ✅ 2. Automatically start both Flask and Vite when the Codespace starts
   "postStartCommand": "bash .devcontainer/start.sh",
-
   "forwardPorts": [5000, 5173],
   "portsAttributes": {
     "5000": { "label": "Backend (Flask API)" },
     "5173": { "label": "Frontend (Vite App)", "onAutoForward": "openBrowser" }
   },
-
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        "python.defaultInterpreterPath": "finance-tracker/backend/.venv/bin/python",
         "terminal.integrated.defaultProfile.linux": "bash"
       },
       "extensions": [

@@ -1,3 +1,9 @@
+NOTE: DOWNLOAD ALL THE FILES IF YOU PLAN TO RUN IT LOCALLY USING COMMAND PROMPT
+
+Requirements:
+Python
+Node.js v24.11.0 (LTS)
+
 Part 1: Run the Backend (Python Server)
 
 Open your first terminal.
@@ -29,5 +35,6 @@ Open a second, new terminal.
 Navigate into your new frontend folder.
 
 Run the frontend server:
+
 
 npm run dev

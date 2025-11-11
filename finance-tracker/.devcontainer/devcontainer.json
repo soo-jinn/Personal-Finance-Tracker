@@ -1,16 +1,23 @@
 {
   "name": "Personal Finance Tracker (Full-Stack)",
 
-  // ✅ Use a prebuilt image with Python + Node.js
+  // ✅ Use a prebuilt container that includes Python, Node.js, Git, etc.
   "image": "mcr.microsoft.com/devcontainers/universal:2",
 
-  // ✅ Runs ONCE when Codespace is created (installs Python + Node deps)
-  "postCreateCommand": "pip install -r finance-tracker/backend/requirements.txt && npm install --prefix finance-tracker/frontend",
+  // ✅ Run once after Codespace is created:
+  // - Create a Python venv
+  // - Activate it
+  // - Upgrade pip
+  // - Install backend deps
+  // - Install frontend deps
+  "postCreateCommand": "python -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -r finance-tracker/backend/requirements.txt && npm install --prefix finance-tracker/frontend",
 
-  // ✅ Forward backend (Flask) and frontend (Vite) ports
+  // ✅ Auto-start backend (Flask) and frontend (Vite) when the Codespace opens
+  "postStartCommand": "source .venv/bin/activate && python finance-tracker/backend/app.py & cd finance-tracker/frontend && npm run dev &",
+
+  // ✅ Forward ports for Flask + Vite
   "forwardPorts": [5000, 5173],
 
-  // ✅ Friendly labels & auto-open frontend
   "portsAttributes": {
     "5000": {
       "label": "Backend (Flask API)"
@@ -21,9 +28,13 @@
     }
   },
 
-  // ✅ Recommended VS Code extensions
+  // ✅ Recommended VS Code settings + extensions
   "customizations": {
     "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": ".venv/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
       "extensions": [
         "ms-python.python",
         "ms-toolsai.jupyter",

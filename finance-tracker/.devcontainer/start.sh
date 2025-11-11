@@ -7,11 +7,11 @@ echo "🚀 Starting Flask backend and Vite frontend..."
 . .venv/bin/activate
 
 # Start Flask backend
-python finance-tracker/backend/app.py &
+python backend/app.py &
 
 # Start frontend (Vite)
-cd finance-tracker/frontend
+cd frontend
 npm run dev &
-cd ../..
+cd ..
 
 echo "✅ Both servers started!"

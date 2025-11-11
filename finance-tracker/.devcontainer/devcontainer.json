@@ -1,33 +1,38 @@
 {
   "name": "Personal Finance Tracker (Full-Stack)",
+  // Use a pre-built image that has Python, Node.js, and other tools
   "image": "[mcr.microsoft.com/devcontainers/universal:2](https://mcr.microsoft.com/devcontainers/universal:2)",
 
-  "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend",
-
-  "forwardPorts": [
-    5000,
-    5173
-  ],
-
-  "portsAttributes": {
-    "5000": {
-      "label": "Backend (API)"
-    },
-    "5173": {
-      "label": "Frontend (App)",
-      "onAutoForward": "openBrowser"
-    }
-  },
-
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-toolsai.jupyter",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss",
-        "ms-azuretools.vscode-docker"
-      ]
-    }
-  }
-}
+  // These commands will run ONCE when the Codespace is first created
+   "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend",
+   
+   // Tell Codespaces which ports to forward
+   "forwardPorts": [
+     5000, // Python backend
+     5173  // React frontend (Vite)
+   ],
+   
+   // Give the ports friendly names and open the frontend in a browser
+   "portsAttributes": {
+     "5000": {
+       "label": "Backend (API)"
+     },
+     "5173": {
+       "label": "Frontend (App)",
+       "onAutoForward": "openBrowser"
+     }
+   },
+   
+   // Add helpful VS Code extensions
+   "customizations": {
+     "vscode": {
+       "extensions": [
+         "ms-python.python",
+         "ms-toolsai.jupyter",
+         "esbenp.prettier-vscode",
+         "bradlc.vscode-tailwindcss",
+         "ms-azuretools.vscode-docker"
+       ]
+     }
+   }
+ }
